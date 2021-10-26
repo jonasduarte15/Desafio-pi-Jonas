@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard</title>
+
+  <link rel="stylesheet" href="style.css" />
+
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<script src="function teste().js"></script>
+
+<body>
+
+
+  <div class="header">
+    <div class="container">
+      <h1 style="font-family: Arial, Helvetica, sans-serif;" class="highlight">Analise de Salarios JD</h1>
+    </div>
+  </div>
+
+  <div class="dash-container">
+
+
+
+
+    <div class="graph">
+      <p style="color: lightsalmon;">Salário Minimo</p>
+      <canvas id="chartline" style="width: 100%; height:100%;"></canvas>
+      <canvas id=""></canvas>
+    </div>
+
+
+    <div class="graph">
+      <p style="color: lightsalmon;">Média de Salario por região</p>
+      <canvas id="borderline" style="width: 100%; height:100%;"></canvas>
+    </div>
+
+
+    <div class="graph">
+      <p style="color: lightsalmon;">Desemprego por Região em '%'</p>
+      <canvas id="piline" style="width: 100%; height:100%;"></canvas>
+
+    </div>
+  </div>
+  <div class="footer">
+    <p style="color: orangered;">Feito com carinho por Joninhas™</p>
+  </div>
+</body>
+
+</html>
+<script>
+
+
+  var ctx = document.getElementById('chartline').getContext('2d');
+  var rotulos = ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange']
+
+
+
+
+  var myChart = new Chart(ctx, {
+
+
+
+
+    type: 'line',
+    data: {
+      labels: ['2011', '2012', '2013', '2014', '2015', '2016', '2017', '2018', '2019', '2020', '2021'],
+      datasets: [{
+        label: '# of Votes',
+        data: [540.00, 622.00, 678.00, 724.00, 788.00, 880.00, 937.00, 954.00, 998.00, 1045.00, 1100.00],
+        backgroundColor: [
+          'rgba(255, 159, 64, 0.2)',
+          'rgba(255, 159, 64, 0.2)',
+          'rgba(255, 159, 64, 0.2)',
+          'rgba(255, 159, 64, 0.2)',
+          'rgba(255, 159, 64, 0.2)',
+          'rgba(255, 159, 64, 0.2)'
+        ],
+        borderColor: [
+          'rgba(255, 99, 132, 1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(153, 102, 255, 1)',
+          'rgba(255, 159, 64, 1)'
+        ],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+</script>
+
+
+
+
+<script>
+
+  var context = document.getElementById('borderline').getContext('2d');
+
+  var rotulos = ['Colisa', 'Tetra', 'Coridora', 'Molinesia', 'arco-íris', 'Betta']
+
+
+
+  var myChart = new Chart(context, {
+
+
+
+
+    type: 'bar',
+    data: {
+      labels: ['Norte', 'Nordeste', 'Sudeste', 'Sul', 'Centro-Oeste'],
+      datasets: [{
+        label: '# of Votes',
+        data: [1711.00, 1539.00, 2585.00, 2499.00, 2498.00],
+        backgroundColor: [
+          'rgba(255, 99, 132, 0.2)',
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(255, 206, 86, 0.2)',
+          'rgba(75, 192, 192, 0.2)',
+          'rgba(153, 102, 255, 0.2)',
+          'rgba(255, 159, 64, 0.2)'
+        ],
+        borderColor: [
+          'rgba(255, 99, 132, 1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(153, 102, 255, 1)',
+          'rgba(255, 159, 64, 1)'
+        ],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+</script>
+
+
+<script>
+
+  var idade = document.getElementById('piline').getContext('2d');
+
+  var rotulos = ['Jovem', 'Adulto', 'Idoso',]
+
+
+
+
+  var myChart = new Chart(idade, {
+
+
+
+
+    type: 'bar',
+    data: {
+      labels: ['Brasil(total)', 'Norte', 'Nordeste', 'Sudeste', 'Sul', 'Centro-Oeste'],
+      datasets: [{
+        label: '# of Votes',
+        data: [11, 10.6, 13.6, 11.4, 6.8, 9.3],
+        backgroundColor: [
+          'rgba(255, 99, 132, 0.2)',
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(255, 206, 86, 0.2)',
+          'rgba(75, 192, 192, 0.2)',
+          'rgba(153, 102, 255, 0.2)',
+          'rgba(255, 159, 64, 0.2)'
+        ],
+        borderColor: [
+          'rgba(255, 99, 132, 1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(153, 102, 255, 1)',
+          'rgba(255, 159, 64, 1)'
+        ],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      maintainAspectRatio: false,
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+</script>
